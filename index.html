@@ -41,10 +41,8 @@
   .nav-logo { display: flex; align-items: center; gap: 14px; text-decoration: none; }
 
   .logo-mark {
-    width: 40px; height: 40px; background: var(--accent);
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Bebas Neue', sans-serif; font-size: 18px; color: white;
-    clip-path: polygon(0 0, 85% 0, 100% 15%, 100% 100%, 15% 100%, 0 85%);
+    height: 40px; width: auto;
+    display: block; object-fit: contain;
   }
 
   .logo-text { display: flex; flex-direction: column; line-height: 1.1; }
@@ -427,7 +425,7 @@
 <!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">
-    <div class="logo-mark">MV</div>
+    <img class="logo-mark" src="logo.jpg" alt="M&V Corporation Logo">
     <div class="logo-text">
       <span class="logo-main">M&V CORPORATION</span>
       <span class="logo-sub">Recycling Japan</span>
@@ -752,7 +750,7 @@
     <div class="footer-top">
       <div>
         <div class="footer-logo">
-          <div class="logo-mark">MV</div>
+          <img class="logo-mark" src="logo.jpg" alt="M&V Corporation Logo">
           <div class="logo-text">
             <span class="logo-main">M&V CORPORATION</span>
             <span class="logo-sub">Recycling Japan</span>
