@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>株式会社 M&Vコーポレーション | ステンレス・アルミ・銅・真鍮 買取</title>
+<title>株式会社 M&Vコーポレーション | スクラップ金属買取</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700;900&family=Bebas+Neue&family=Barlow+Condensed:wght@300;600;800&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -20,382 +20,180 @@
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); font-family: 'Noto Sans JP', sans-serif; overflow-x: hidden; }
 
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Noto Sans JP', sans-serif;
-    overflow-x: hidden;
-  }
-
-  /* ===== NAV ===== */
+  /* NAV */
   nav {
     position: fixed; top: 0; width: 100%; z-index: 900;
     display: flex; align-items: center; justify-content: space-between;
     padding: 0 60px; height: 72px;
-    background: rgba(255,255,255,0.96);
-    backdrop-filter: blur(12px);
+    background: rgba(255,255,255,0.96); backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
   }
-
   .nav-logo { display: flex; align-items: center; gap: 14px; text-decoration: none; }
-
-  .logo-mark {
-    height: 40px; width: auto;
-    display: block; object-fit: contain;
-  }
-
+  .logo-mark { height: 40px; width: auto; display: block; object-fit: contain; }
   .logo-text { display: flex; flex-direction: column; line-height: 1.1; }
   .logo-main { font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 3px; color: var(--text); }
   .logo-sub { font-size: 9px; letter-spacing: 2px; color: var(--text3); text-transform: uppercase; }
-
   .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
-
-  .nav-links a {
-    text-decoration: none; font-size: 12px; letter-spacing: 2px;
-    color: var(--text2); text-transform: uppercase; transition: color 0.2s; position: relative;
-  }
-
-  .nav-links a::after {
-    content: ''; position: absolute; bottom: -4px; left: 0;
-    width: 0; height: 1px; background: var(--accent); transition: width 0.3s;
-  }
-
+  .nav-links a { text-decoration: none; font-size: 12px; letter-spacing: 2px; color: var(--text2); text-transform: uppercase; transition: color 0.2s; position: relative; }
+  .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--accent); transition: width 0.3s; }
   .nav-links a:hover { color: var(--text); }
   .nav-links a:hover::after { width: 100%; }
-
   .nav-cta { background: var(--accent) !important; color: white !important; padding: 10px 24px; font-weight: 700 !important; }
   .nav-cta::after { display: none !important; }
   .nav-cta:hover { opacity: 0.88 !important; }
 
-  /* ===== HERO ===== */
-  .hero {
-    min-height: 100vh; display: flex; align-items: center;
-    position: relative; padding-top: 72px; overflow: hidden;
-  }
-
+  /* HERO */
+  .hero { min-height: 100vh; display: flex; align-items: center; position: relative; padding-top: 72px; overflow: hidden; }
   .hero-bg {
     position: absolute; inset: 0;
-    background:
-      radial-gradient(ellipse 60% 70% at 90% 50%, rgba(26,122,64,0.08) 0%, transparent 65%),
-      linear-gradient(160deg, #ffffff 0%, #f4fbf6 60%, #e6f5ec 100%);
+    background: radial-gradient(ellipse 60% 70% at 90% 50%, rgba(26,122,64,0.08) 0%, transparent 65%),
+                linear-gradient(160deg, #ffffff 0%, #f4fbf6 60%, #e6f5ec 100%);
   }
-
   .hero-grid {
     position: absolute; inset: 0;
-    background-image:
-      linear-gradient(rgba(26,122,64,0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(26,122,64,0.04) 1px, transparent 1px);
+    background-image: linear-gradient(rgba(26,122,64,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(26,122,64,0.04) 1px, transparent 1px);
     background-size: 60px 60px;
   }
-
-  .hero-inner {
-    position: relative; z-index: 2;
-    max-width: 1200px; margin: 0 auto; padding: 80px 60px;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
-  }
-
-  .hero-eyebrow {
-    display: flex; align-items: center; gap: 14px; margin-bottom: 28px;
-    animation: fadeUp 0.7s ease both;
-  }
-
+  .hero-inner { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; padding: 80px 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .hero-eyebrow { display: flex; align-items: center; gap: 14px; margin-bottom: 28px; animation: fadeUp 0.7s ease both; }
   .eyebrow-line { width: 40px; height: 1px; background: var(--accent); }
   .eyebrow-text { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(--accent); font-weight: 700; }
-
-  .hero-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(60px, 7vw, 100px); line-height: 0.95;
-    letter-spacing: 2px; color: var(--text); margin-bottom: 6px;
-    animation: fadeUp 0.7s 0.1s ease both;
-  }
-
+  .hero-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(60px, 7vw, 100px); line-height: 0.95; letter-spacing: 2px; color: var(--text); margin-bottom: 6px; animation: fadeUp 0.7s 0.1s ease both; }
   .hero-title .accent { color: var(--accent); }
-
-  .hero-title-jp {
-    font-size: clamp(16px, 2vw, 22px); font-weight: 900;
-    letter-spacing: 5px; color: var(--text3); margin-bottom: 28px;
-    animation: fadeUp 0.7s 0.15s ease both;
-  }
-
-  .hero-desc {
-    font-size: 14px; line-height: 2; color: var(--text2); max-width: 420px;
-    margin-bottom: 44px; font-weight: 300; letter-spacing: 0.5px;
-    animation: fadeUp 0.7s 0.2s ease both;
-  }
-
+  .hero-title-jp { font-size: clamp(16px, 2vw, 22px); font-weight: 900; letter-spacing: 5px; color: var(--text3); margin-bottom: 28px; animation: fadeUp 0.7s 0.15s ease both; }
+  .hero-desc { font-size: 14px; line-height: 2; color: var(--text2); max-width: 420px; margin-bottom: 44px; font-weight: 300; letter-spacing: 0.5px; animation: fadeUp 0.7s 0.2s ease both; }
   .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; animation: fadeUp 0.7s 0.25s ease both; }
-
-  .btn-primary {
-    display: inline-flex; align-items: center; gap: 10px;
-    background: var(--accent); color: white; text-decoration: none;
-    padding: 16px 36px; font-family: 'Barlow Condensed', sans-serif;
-    font-size: 15px; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; transition: all 0.3s;
-  }
-
+  .btn-primary { display: inline-flex; align-items: center; gap: 10px; background: var(--accent); color: white; text-decoration: none; padding: 16px 36px; font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; transition: all 0.3s; }
   .btn-primary:hover { background: var(--accent2); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(26,122,64,0.28); }
-
-  .btn-secondary {
-    display: inline-flex; align-items: center; gap: 10px;
-    border: 1.5px solid var(--accent); color: var(--accent); background: transparent;
-    text-decoration: none; padding: 15px 32px;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 15px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; transition: all 0.3s;
-  }
-
+  .btn-secondary { display: inline-flex; align-items: center; gap: 10px; border: 1.5px solid var(--accent); color: var(--accent); background: transparent; text-decoration: none; padding: 15px 32px; font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; transition: all 0.3s; }
   .btn-secondary:hover { background: var(--accent); color: white; }
-
   .hero-right { animation: fadeIn 1s 0.4s ease both; }
-
-  .hero-card {
-    background: white; border: 1px solid var(--border);
-    border-top: 4px solid var(--accent); padding: 44px;
-    box-shadow: 0 4px 40px rgba(26,122,64,0.1);
-  }
-
-  .hero-card-label {
-    font-size: 10px; letter-spacing: 4px; text-transform: uppercase;
-    color: var(--text3); margin-bottom: 32px;
-    display: flex; align-items: center; gap: 10px;
-  }
-
+  .hero-card { background: white; border: 1px solid var(--border); border-top: 4px solid var(--accent); padding: 44px; box-shadow: 0 4px 40px rgba(26,122,64,0.1); }
+  .hero-card-label { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(--text3); margin-bottom: 32px; display: flex; align-items: center; gap: 10px; }
   .live-dot { width: 7px; height: 7px; background: #16a34a; border-radius: 50%; animation: pulse 2s infinite; }
-
-  @keyframes pulse {
-    0%,100% { box-shadow: 0 0 0 0 rgba(22,163,74,0.4); }
-    50% { box-shadow: 0 0 0 6px rgba(22,163,74,0); }
-  }
-
+  @keyframes pulse { 0%,100% { box-shadow: 0 0 0 0 rgba(22,163,74,0.4); } 50% { box-shadow: 0 0 0 6px rgba(22,163,74,0); } }
   .hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--border); margin-bottom: 2px; }
   .hero-stat { background: white; padding: 28px 24px; text-align: center; }
-
-  .stat-num {
-    font-family: 'Bebas Neue', sans-serif; font-size: 48px;
-    letter-spacing: 2px; line-height: 1; color: var(--text); display: block;
-  }
-
+  .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 48px; letter-spacing: 2px; line-height: 1; color: var(--text); display: block; }
   .stat-num em { color: var(--accent); font-style: normal; }
   .stat-label { font-size: 10px; letter-spacing: 2px; color: var(--text3); margin-top: 6px; display: block; text-transform: uppercase; }
+  .hero-tagline { background: var(--bg2); border: 1px solid var(--border); padding: 20px 24px; margin-top: 12px; font-size: 12px; line-height: 1.9; color: var(--text2); font-weight: 300; }
 
-  .hero-tagline {
-    background: var(--bg2); border: 1px solid var(--border); padding: 20px 24px; margin-top: 12px;
-    font-size: 12px; line-height: 1.9; color: var(--text2); font-weight: 300;
-  }
-
-  /* ===== ABOUT ===== */
+  /* ABOUT */
   .about { padding: 120px 60px; background: var(--bg); }
-
-  .about-inner {
-    max-width: 1200px; margin: 0 auto;
-    display: grid; grid-template-columns: 1fr 1.4fr; gap: 100px; align-items: start;
-  }
-
+  .about-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.4fr; gap: 100px; align-items: start; }
   .section-eyebrow { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
   .section-line { width: 40px; height: 1px; background: var(--accent); }
   .section-eyebrow span { font-size: 10px; letter-spacing: 4px; color: var(--accent); text-transform: uppercase; font-weight: 700; }
-
-  .section-title {
-    font-family: 'Bebas Neue', sans-serif; font-size: clamp(44px, 5vw, 68px);
-    letter-spacing: 3px; line-height: 1; color: var(--text); margin-bottom: 12px;
-  }
-
+  .section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(44px, 5vw, 68px); letter-spacing: 3px; line-height: 1; color: var(--text); margin-bottom: 12px; }
   .section-title-jp { font-size: 14px; font-weight: 700; letter-spacing: 4px; color: var(--text3); margin-bottom: 0; }
-
   .about-lead { font-size: 18px; font-weight: 700; line-height: 1.7; color: var(--text); margin-bottom: 24px; }
   .about-text { font-size: 14px; line-height: 2.1; color: var(--text2); font-weight: 300; margin-bottom: 48px; }
-
   .about-pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--border); }
-
-  .pillar {
-    background: var(--bg2); padding: 28px 24px;
-    border-top: 3px solid transparent; transition: border-color 0.3s, background 0.3s;
-  }
-
+  .pillar { background: var(--bg2); padding: 32px 24px; border-top: 3px solid transparent; transition: border-color 0.3s, background 0.3s; }
   .pillar:hover { border-color: var(--accent); background: white; }
-
-  .pillar-icon { font-size: 28px; margin-bottom: 14px; display: block; }
-
-  .pillar-title {
-    font-family: 'Barlow Condensed', sans-serif; font-size: 16px; font-weight: 800;
-    letter-spacing: 2px; text-transform: uppercase; color: var(--text); margin-bottom: 4px;
-  }
-
+  .pillar-svg { width: 28px; height: 28px; margin-bottom: 16px; color: var(--accent); }
+  .pillar-title { font-family: 'Barlow Condensed', sans-serif; font-size: 16px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--text); margin-bottom: 4px; }
   .pillar-title-jp { font-size: 10px; color: var(--accent); letter-spacing: 2px; margin-bottom: 12px; display: block; }
   .pillar-desc { font-size: 12px; line-height: 1.9; color: var(--text2); font-weight: 300; }
 
-  /* ===== SCRAP PRICES ===== */
-  .prices { padding: 120px 60px; background: var(--bg2); }
-  .prices-inner { max-width: 1200px; margin: 0 auto; }
+  /* SCRAP ITEMS */
+  .prices { padding: 100px 60px; background: var(--bg2); }
+  .prices-inner { max-width: 1280px; margin: 0 auto; }
+  .prices-header { margin-bottom: 48px; }
+  .prices-note { font-size: 13px; line-height: 1.9; color: var(--text2); font-weight: 300; margin-top: 8px; }
+  .prices-note strong { color: var(--accent); }
 
-  .prices-header {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
-    align-items: end; margin-bottom: 56px;
+  .category-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 40px; }
+  .tab-btn { padding: 8px 20px; border: 1.5px solid var(--border); background: white; color: var(--text2); font-family: 'Noto Sans JP', sans-serif; font-size: 12px; letter-spacing: 1px; cursor: pointer; transition: all 0.2s; }
+  .tab-btn:hover, .tab-btn.active { background: var(--accent); color: white; border-color: var(--accent); }
+
+  .items-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+
+  .item-card { background: white; border: 1px solid var(--border); overflow: hidden; transition: all 0.3s; cursor: default; display: flex; flex-direction: column; }
+  .item-card:hover { box-shadow: 0 6px 28px rgba(26,122,64,0.14); transform: translateY(-3px); border-color: var(--accent); }
+
+  .item-img-wrap { width: 100%; aspect-ratio: 4/3; overflow: hidden; background: var(--bg3); position: relative; }
+  .item-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; display: block; }
+  .item-card:hover .item-img-wrap img { transform: scale(1.06); }
+
+  /* Text fallback when image fails */
+  .item-fallback {
+    display: none; position: absolute; inset: 0;
+    align-items: center; justify-content: center; flex-direction: column; gap: 8px;
+    background: var(--bg3);
+  }
+  .item-fallback-abbr {
+    font-family: 'Bebas Neue', sans-serif; font-size: 36px; letter-spacing: 3px;
+    color: var(--accent); line-height: 1;
+  }
+  .item-fallback-label {
+    font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--text3);
   }
 
-  .prices-note { font-size: 14px; line-height: 2; color: var(--text2); font-weight: 300; }
-  .prices-note strong { color: var(--accent); font-weight: 700; }
+  .item-body { padding: 16px 18px 20px; flex: 1; display: flex; flex-direction: column; }
+  .item-num { font-size: 9px; letter-spacing: 3px; color: var(--text3); text-transform: uppercase; margin-bottom: 4px; }
+  .item-name-jp { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 2px; line-height: 1.3; }
+  .item-name-en { font-size: 11px; color: var(--text3); font-weight: 300; line-height: 1.4; margin-bottom: 10px; }
+  .item-cat { display: inline-block; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); background: var(--bg3); padding: 3px 10px; font-weight: 700; margin-top: auto; border: 1px solid var(--border); }
 
-  .prices-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
-    background: var(--border);
-  }
+  .item-card.hidden { display: none; }
 
-  .price-card {
-    background: white; padding: 36px 32px;
-    position: relative; overflow: hidden;
-    transition: background 0.3s, transform 0.3s;
-  }
-
-  .price-card:hover { background: var(--bg3); transform: translateY(-3px); }
-
-  .price-card-top {
-    display: flex; align-items: flex-start; justify-content: space-between;
-    margin-bottom: 20px;
-  }
-
-  .price-card-icon {
-    width: 48px; height: 48px; border-radius: 8px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 22px; flex-shrink: 0;
-  }
-
-  .price-change {
-    font-size: 11px; font-weight: 700; letter-spacing: 1px;
-    padding: 4px 10px;
-    border-radius: 2px;
-  }
-
-  .price-change.up { background: rgba(22,163,74,0.1); color: #16a34a; }
-  .price-change.down { background: rgba(220,38,38,0.08); color: #dc2626; }
-  .price-change.stable { background: rgba(26,122,64,0.07); color: var(--text3); }
-
-  .price-card-name {
-    font-family: 'Barlow Condensed', sans-serif; font-size: 22px; font-weight: 800;
-    letter-spacing: 2px; text-transform: uppercase; color: var(--text); margin-bottom: 2px;
-  }
-
-  .price-card-jp { font-size: 11px; color: var(--text3); letter-spacing: 3px; margin-bottom: 16px; }
-
-  .price-card-value {
-    font-family: 'Bebas Neue', sans-serif; font-size: 44px;
-    letter-spacing: 1px; line-height: 1; color: var(--accent); margin-bottom: 4px;
-  }
-
-  .price-card-unit { font-size: 11px; color: var(--text3); letter-spacing: 2px; text-transform: uppercase; }
-
-  .price-card-bar {
-    position: absolute; bottom: 0; left: 0; height: 3px;
-    background: linear-gradient(90deg, var(--accent), var(--bg3));
-    transition: width 1.2s cubic-bezier(0.4,0,0.2,1);
-  }
-
-  /* ===== CONTACT ===== */
+  /* CONTACT */
   .contact { padding: 120px 60px; background: var(--bg); }
   .contact-inner { max-width: 1200px; margin: 0 auto; }
-
-  .contact-header {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
-    align-items: end; margin-bottom: 64px;
-  }
-
+  .contact-header { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; margin-bottom: 64px; }
   .contact-note { font-size: 14px; line-height: 2; color: var(--text2); font-weight: 300; }
-
-  .contact-card {
-    background: white; border: 1px solid var(--border);
-    padding: 56px; position: relative; overflow: hidden;
-    box-shadow: 0 2px 24px rgba(26,122,64,0.07);
-  }
-
-  .contact-card::before {
-    content: ''; position: absolute; top: 0; left: 0;
-    width: 4px; height: 100%; background: var(--accent);
-  }
-
-  .contact-card-title {
-    font-family: 'Barlow Condensed', sans-serif; font-size: 22px; font-weight: 800;
-    letter-spacing: 3px; text-transform: uppercase; color: var(--text); margin-bottom: 4px;
-  }
-
-  .contact-card-jp { font-size: 11px; color: var(--text3); letter-spacing: 3px; margin-bottom: 36px; }
-
   .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--border); }
-
+  .contact-card { background: white; padding: 48px 44px; position: relative; overflow: hidden; }
+  .contact-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--accent); }
+  .contact-card-title { font-family: 'Barlow Condensed', sans-serif; font-size: 22px; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; color: var(--text); margin-bottom: 4px; }
+  .contact-card-jp { font-size: 11px; color: var(--text3); letter-spacing: 3px; margin-bottom: 28px; }
   .contact-detail { display: flex; flex-direction: column; }
 
-  .contact-row {
-    display: flex; align-items: flex-start; gap: 20px;
-    padding: 18px 0; border-bottom: 1px solid var(--border);
-  }
-
+  .contact-row { display: flex; align-items: flex-start; gap: 18px; padding: 16px 0; border-bottom: 1px solid var(--border); }
   .contact-row:last-child { border-bottom: none; }
 
-  .contact-row-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+  /* SVG icon in contact rows */
+  .crow-icon { width: 18px; height: 18px; flex-shrink: 0; margin-top: 3px; color: var(--accent); }
 
-  .contact-row-label {
-    font-size: 10px; letter-spacing: 3px; color: var(--accent);
-    text-transform: uppercase; font-weight: 700; margin-bottom: 4px;
-  }
-
+  .contact-row-label { font-size: 10px; letter-spacing: 3px; color: var(--accent); text-transform: uppercase; font-weight: 700; margin-bottom: 4px; }
   .contact-row-value { font-size: 15px; font-weight: 700; color: var(--text); line-height: 1.5; }
   .contact-row-sub { font-size: 12px; color: var(--text3); font-weight: 300; margin-top: 3px; line-height: 1.6; }
 
-  /* Hours table */
   .hours-table { width: 100%; border-collapse: collapse; margin-top: 8px; }
-
   .hours-table tr { border-bottom: 1px solid var(--border); }
   .hours-table tr:last-child { border-bottom: none; }
-
   .hours-table td { padding: 10px 0; font-size: 13px; }
   .hours-table td:first-child { color: var(--text2); font-weight: 700; width: 120px; }
   .hours-table td:last-child { color: var(--text); font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 600; letter-spacing: 1px; }
+  .closed-text { color: #c0392b !important; }
+  .break-note { font-size: 11px; color: var(--text3); margin-top: 12px; line-height: 2; border-left: 2px solid var(--border); padding-left: 12px; }
 
-  .closed-text { color: #dc2626 !important; }
-  .break-note { font-size: 11px; color: var(--text3); margin-top: 4px; }
-
-  /* ===== FOOTER ===== */
+  /* FOOTER */
   footer { background: #0d3320; padding: 56px 60px 36px; }
   .footer-inner { max-width: 1200px; margin: 0 auto; }
-
-  .footer-top {
-    display: grid; grid-template-columns: 1.5fr 1fr; gap: 80px;
-    padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 36px;
-  }
-
+  .footer-top { display: grid; grid-template-columns: 1.5fr 1fr; gap: 80px; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 36px; }
   .footer-logo { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
   .footer-logo .logo-main { color: white; }
   .footer-logo .logo-sub { color: rgba(255,255,255,0.4); }
-
   .footer-tagline { font-size: 13px; line-height: 1.9; color: rgba(255,255,255,0.45); font-weight: 300; max-width: 320px; }
-
-  .footer-location-title {
-    font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 800;
-    letter-spacing: 3px; text-transform: uppercase; color: #2db360; margin-bottom: 20px;
-  }
-
-  .footer-location-items { display: flex; flex-direction: column; gap: 16px; }
-  .footer-loc-item { display: flex; align-items: flex-start; gap: 12px; }
-  .footer-loc-icon { font-size: 16px; margin-top: 1px; flex-shrink: 0; opacity: 0.7; }
+  .footer-location-title { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; color: #2db360; margin-bottom: 20px; }
+  .footer-location-items { display: flex; flex-direction: column; gap: 18px; }
+  .footer-loc-item { display: flex; align-items: flex-start; gap: 14px; }
+  .footer-loc-icon-svg { width: 14px; height: 14px; flex-shrink: 0; margin-top: 3px; color: rgba(255,255,255,0.35); }
   .footer-loc-label { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 2px; }
   .footer-loc-value { font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.8); }
   .footer-loc-detail { font-size: 11px; color: rgba(255,255,255,0.4); margin-top: 2px; line-height: 1.6; }
-
   .footer-bottom { display: flex; align-items: center; justify-content: space-between; }
   .footer-copy { font-size: 11px; color: rgba(255,255,255,0.2); letter-spacing: 1px; }
 
-  /* ===== ANIMATIONS ===== */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-
-  /* ===== RESPONSIVE ===== */
+  @media (max-width: 1100px) { .items-grid { grid-template-columns: repeat(3, 1fr); } }
   @media (max-width: 1024px) {
     nav { padding: 0 28px; }
     .hero-inner { grid-template-columns: 1fr; gap: 48px; padding: 60px 28px; }
@@ -403,18 +201,16 @@
     .about { padding: 80px 28px; }
     .about-inner { grid-template-columns: 1fr; gap: 48px; }
     .prices { padding: 80px 28px; }
-    .prices-header { grid-template-columns: 1fr; gap: 24px; }
-    .prices-grid { grid-template-columns: repeat(2, 1fr); }
     .contact { padding: 80px 28px; }
     .contact-header { grid-template-columns: 1fr; gap: 24px; }
     .contact-grid { grid-template-columns: 1fr; }
     footer { padding: 48px 28px 28px; }
     .footer-top { grid-template-columns: 1fr; gap: 40px; }
   }
-
+  @media (max-width: 768px) { .items-grid { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 640px) {
     .about-pillars { grid-template-columns: 1fr; }
-    .prices-grid { grid-template-columns: 1fr; }
+    .items-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
     .nav-links li:not(:last-child) { display: none; }
     .footer-bottom { flex-direction: column; gap: 16px; align-items: flex-start; }
   }
@@ -433,7 +229,7 @@
   </a>
   <ul class="nav-links">
     <li><a href="#about">About Us</a></li>
-    <li><a href="#prices">Scrap Prices</a></li>
+    <li><a href="#prices">Scrap Items</a></li>
     <li><a href="#contact" class="nav-cta">Contact Us</a></li>
   </ul>
 </nav>
@@ -444,96 +240,55 @@
   <div class="hero-grid"></div>
   <div class="hero-inner">
     <div class="hero-left">
-      <div class="hero-eyebrow">
-        <div class="eyebrow-line"></div>
-        <span class="eyebrow-text">株式会社 M&Vコーポレーション</span>
-      </div>
-      <h1 class="hero-title">
-        SCRAP<br>
-        <span class="accent">RECYCLING</span><br>
-        JAPAN
-      </h1>
+      <div class="hero-eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">株式会社 M&Vコーポレーション</span></div>
+      <h1 class="hero-title">SCRAP<br><span class="accent">RECYCLING</span><br>JAPAN</h1>
       <p class="hero-title-jp">ステンレス・アルミ・銅・真鍮 買取</p>
-      <p class="hero-desc">
-        ステンレス・アルミ・銅・真鍮、その他金属および加工品を高価買取。
-        月曜〜土曜 08:30–17:30 営業。公正な価格でスピーディーに対応いたします。
-      </p>
+      <p class="hero-desc">ステンレス・アルミ・銅・真鍮、その他金属および加工品を高価買取。月曜〜土曜 08:30–17:30 営業。公正な価格でスピーディーに対応いたします。</p>
       <div class="hero-actions">
-        <a href="#prices" class="btn-primary">買取価格を見る →</a>
-        <a href="#contact" class="btn-secondary">お問い合わせ ↗</a>
+        <a href="#prices" class="btn-primary">買取品目を見る &rarr;</a>
+        <a href="#contact" class="btn-secondary">お問い合わせ &nearr;</a>
       </div>
     </div>
-
     <div class="hero-right">
       <div class="hero-card">
-        <div class="hero-card-label">
-          <div class="live-dot"></div>
-          M&V Corporation — At a Glance
-        </div>
+        <div class="hero-card-label"><div class="live-dot"></div>M&V Corporation — At a Glance</div>
         <div class="hero-stats">
-          <div class="hero-stat">
-            <span class="stat-num">15<em>+</em></span>
-            <span class="stat-label">Years Active</span>
-          </div>
-          <div class="hero-stat">
-            <span class="stat-num">6<em>日</em></span>
-            <span class="stat-label">Days Open</span>
-          </div>
-          <div class="hero-stat">
-            <span class="stat-num">5<em>+</em></span>
-            <span class="stat-label">Metal Types</span>
-          </div>
-          <div class="hero-stat">
-            <span class="stat-num">毎日</span>
-            <span class="stat-label">Price Updates</span>
-          </div>
+          <div class="hero-stat"><span class="stat-num">15<em>+</em></span><span class="stat-label">Years Active</span></div>
+          <div class="hero-stat"><span class="stat-num">6<em>日</em></span><span class="stat-label">Days Open</span></div>
+          <div class="hero-stat"><span class="stat-num">60<em>+</em></span><span class="stat-label">Item Types</span></div>
+          <div class="hero-stat"><span class="stat-num">毎日</span><span class="stat-label">Price Updates</span></div>
         </div>
-        <div class="hero-tagline">
-          誠実・迅速・公正をモットーに、個人から法人まで幅広くお買い取り対応。出張買取・大口歓迎。
-        </div>
+        <div class="hero-tagline">誠実・迅速・公正をモットーに、個人から法人まで幅広くお買い取り対応。出張買取・大口歓迎。</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ABOUT US -->
+<!-- ABOUT -->
 <section class="about" id="about">
   <div class="about-inner">
     <div>
-      <div class="section-eyebrow">
-        <div class="section-line"></div>
-        <span>About Us</span>
-      </div>
+      <div class="section-eyebrow"><div class="section-line"></div><span>About Us</span></div>
       <h2 class="section-title">WHO<br>WE ARE</h2>
       <p class="section-title-jp">会社案内</p>
     </div>
-
     <div>
       <p class="about-lead">株式会社M&Vコーポレーションは、群馬県伊勢崎市を拠点に金属スクラップ・リサイクル事業を展開する専門企業です。</p>
-      <p class="about-text">
-        ステンレス・アルミ・銅・真鍮、その他金属および加工品の買取を行っております。
-        個人のお客様から工場・建設業者・解体業者まで、あらゆる規模のお取引に対応しています。<br><br>
-        代表のマヘモデ ベネセボルディ（Mahmoud Benesbordy）が直接対応し、迅速かつ公正な査定をお約束します。
-        大量スクラップの出張買取サービスも承っておりますので、お気軽にご相談ください。
-      </p>
-
+      <p class="about-text">ステンレス・アルミ・銅・真鍮、その他金属および加工品の買取を行っております。個人のお客様から工場・建設業者・解体業者まで、あらゆる規模のお取引に対応しています。<br><br>代表のマヘモデ ベネセボルディ（Mahmoud Benesbordy）が直接対応し、迅速かつ公正な査定をお約束します。大量スクラップの出張買取サービスも承っておりますので、お気軽にご相談ください。</p>
       <div class="about-pillars">
         <div class="pillar">
-          <span class="pillar-icon">♻️</span>
-          <div class="pillar-title">Eco-First</div>
-          <span class="pillar-title-jp">環境優先</span>
+          <svg class="pillar-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 9 9"/><path d="M12 3v4m0-4C9 3 6.5 5.5 6.5 8S9 13 12 13s5.5-2.5 5.5-5"/><path d="M21 12h-4"/></svg>
+          <div class="pillar-title">Eco-First</div><span class="pillar-title-jp">環境優先</span>
           <p class="pillar-desc">適切な処理で環境負荷を最小限に。責任あるリサイクルを追求します。</p>
         </div>
         <div class="pillar">
-          <span class="pillar-icon">💹</span>
-          <div class="pillar-title">Fair Prices</div>
-          <span class="pillar-title-jp">公正価格</span>
+          <svg class="pillar-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          <div class="pillar-title">Fair Prices</div><span class="pillar-title-jp">公正価格</span>
           <p class="pillar-desc">市場動向に合わせた透明性のある価格で、正直にお買い取りします。</p>
         </div>
         <div class="pillar">
-          <span class="pillar-icon">⚡</span>
-          <div class="pillar-title">Fast Service</div>
-          <span class="pillar-title-jp">迅速対応</span>
+          <svg class="pillar-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <div class="pillar-title">Fast Service</div><span class="pillar-title-jp">迅速対応</span>
           <p class="pillar-desc">査定後その場で現金払い。スピーディーな対応が自慢です。</p>
         </div>
       </div>
@@ -541,137 +296,471 @@
   </div>
 </section>
 
-<!-- SCRAP PRICES -->
+<!-- SCRAP ITEMS -->
 <section class="prices" id="prices">
   <div class="prices-inner">
     <div class="prices-header">
-      <div>
-        <div class="section-eyebrow">
-          <div class="section-line"></div>
-          <span>Scrap Prices</span>
-        </div>
-        <h2 class="section-title">BUY-BACK<br>PRICES</h2>
-        <p class="section-title-jp">買取価格一覧</p>
-      </div>
-      <p class="prices-note">
-        買取価格は市場動向により変動します。記載価格はあくまで目安です。
-        正確な査定は直接お問い合わせください。<br><br>
-        <strong>※ 数量・状態により価格が変わる場合があります。大口歓迎。</strong>
-      </p>
+      <div class="section-eyebrow"><div class="section-line"></div><span>Scrap Items</span></div>
+      <h2 class="section-title">BUY-BACK<br>ITEMS</h2>
+      <p class="section-title-jp">買取品目一覧</p>
+      <p class="prices-note">以下の品目を買取しております。価格は市場動向により変動します。正確な査定はお電話またはご持参ください。<br><strong>数量・状態により価格が変わる場合があります。大口歓迎。</strong></p>
     </div>
 
-    <div class="prices-grid">
+    <div class="category-tabs">
+      <button class="tab-btn active" onclick="filterItems('all',this)">すべて / All</button>
+      <button class="tab-btn" onclick="filterItems('iron',this)">鉄・スチール</button>
+      <button class="tab-btn" onclick="filterItems('aluminum',this)">アルミ</button>
+      <button class="tab-btn" onclick="filterItems('copper',this)">銅</button>
+      <button class="tab-btn" onclick="filterItems('brass',this)">真鍮・砲金</button>
+      <button class="tab-btn" onclick="filterItems('special',this)">特殊金属</button>
+      <button class="tab-btn" onclick="filterItems('electronic',this)">電子・バッテリー</button>
+      <button class="tab-btn" onclick="filterItems('other',this)">その他</button>
+    </div>
 
-      <div class="price-card">
-        <div class="price-card-top">
-          <div class="price-card-icon" style="background: rgba(184,115,51,0.12);">🟤</div>
-          <span class="price-change up">▲ UP</span>
+    <div class="items-grid" id="itemsGrid">
+
+      <!-- IRON -->
+      <div class="item-card" data-cat="iron">
+        <div class="item-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Iron_electrolytic_and_1cm3_cube.jpg/320px-Iron_electrolytic_and_1cm3_cube.jpg" alt="鉄 スチール" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="item-fallback"><span class="item-fallback-abbr">Fe</span><span class="item-fallback-label">Steel</span></div>
         </div>
-        <div class="price-card-name">COPPER</div>
-        <div class="price-card-jp">銅</div>
-        <div class="price-card-value" style="color:#b87333;">¥1,180</div>
-        <div class="price-card-unit">円 / kg（上銅）</div>
-        <div class="price-card-bar" style="width:85%;"></div>
+        <div class="item-body"><div class="item-num">#01</div><div class="item-name-jp">鉄 スチール</div><div class="item-name-en">Steel Metal</div><span class="item-cat">Iron / Steel</span></div>
       </div>
 
-      <div class="price-card">
-        <div class="price-card-top">
-          <div class="price-card-icon" style="background: rgba(212,180,50,0.12);">🟡</div>
-          <span class="price-change up">▲ UP</span>
+      <div class="item-card" data-cat="iron">
+        <div class="item-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Checker_plate.jpg/320px-Checker_plate.jpg" alt="敷鉄板" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="item-fallback"><span class="item-fallback-abbr">IPN</span><span class="item-fallback-label">Iron Slab</span></div>
         </div>
-        <div class="price-card-name">BRASS</div>
-        <div class="price-card-jp">真鍮</div>
-        <div class="price-card-value" style="color:#b8960b;">¥720</div>
-        <div class="price-card-unit">円 / kg</div>
-        <div class="price-card-bar" style="width:60%;"></div>
+        <div class="item-body"><div class="item-num">#02</div><div class="item-name-jp">敷鉄板</div><div class="item-name-en">Heavy Iron Slab</div><span class="item-cat">Iron / Steel</span></div>
       </div>
 
-      <div class="price-card">
-        <div class="price-card-top">
-          <div class="price-card-icon" style="background: rgba(180,180,180,0.15);">⬜</div>
-          <span class="price-change down">▼ DOWN</span>
+      <div class="item-card" data-cat="iron">
+        <div class="item-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Stacking_Cage_Pallets.jpg/320px-Stacking_Cage_Pallets.jpg" alt="パレティーナ小" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="item-fallback"><span class="item-fallback-abbr">PLT</span><span class="item-fallback-label">Container</span></div>
         </div>
-        <div class="price-card-name">ALUMINUM</div>
-        <div class="price-card-jp">アルミニウム</div>
-        <div class="price-card-value" style="color:#888;">¥220</div>
-        <div class="price-card-unit">円 / kg</div>
-        <div class="price-card-bar" style="width:38%;"></div>
+        <div class="item-body"><div class="item-num">#03</div><div class="item-name-jp">パレティーナ小_A</div><div class="item-name-en">Small Meshed Metal Container</div><span class="item-cat">Iron / Steel</span></div>
       </div>
 
-      <div class="price-card">
-        <div class="price-card-top">
-          <div class="price-card-icon" style="background: rgba(120,130,120,0.12);">🔘</div>
-          <span class="price-change stable">→ STABLE</span>
+      <!-- ALUMINUM -->
+      <div class="item-card" data-cat="aluminum">
+        <div class="item-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Aluminium_window.jpg/320px-Aluminium_window.jpg" alt="アルミサッシA" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="item-fallback"><span class="item-fallback-abbr">Al-A</span><span class="item-fallback-label">Sash Grade A</span></div>
         </div>
-        <div class="price-card-name">STAINLESS</div>
-        <div class="price-card-jp">ステンレス</div>
-        <div class="price-card-value" style="color:#6b8c6b;">¥145</div>
-        <div class="price-card-unit">円 / kg</div>
-        <div class="price-card-bar" style="width:28%;"></div>
+        <div class="item-body"><div class="item-num">#04</div><div class="item-name-jp">アルミサッシA_付物なし</div><div class="item-name-en">Grade A Aluminum Window Frame — Pure</div><span class="item-cat">Aluminum</span></div>
       </div>
 
-      <div class="price-card">
-        <div class="price-card-top">
-          <div class="price-card-icon" style="background: rgba(184,115,51,0.10);">🟫</div>
-          <span class="price-change up">▲ UP</span>
+      <div class="item-card" data-cat="aluminum">
+        <div class="item-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Aluminium_window.jpg/320px-Aluminium_window.jpg" alt="アルミサッシB" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="item-fallback"><span class="item-fallback-abbr">Al-B</span><span class="item-fallback-label">Sash Grade B</span></div>
         </div>
-        <div class="price-card-name">GUNMETAL</div>
-        <div class="price-card-jp">砲金</div>
-        <div class="price-card-value" style="color:#9a7020;">¥740</div>
-        <div class="price-card-unit">円 / kg</div>
-        <div class="price-card-bar" style="width:62%;"></div>
+        <div class="item-body"><div class="item-num">#05</div><div class="item-name-jp">アルミサッシB_付物あり</div><div class="item-name-en">Grade B Aluminum Window Frame — With Fittings</div><span class="item-cat">Aluminum</span></div>
       </div>
 
-      <div class="price-card">
-        <div class="price-card-top">
-          <div class="price-card-icon" style="background: rgba(26,122,64,0.10);">♻️</div>
-          <span class="price-change stable">→ STABLE</span>
+      <div class="item-card" data-cat="aluminum">
+        <div class="item-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Aluminium_recycling.jpg/320px-Aluminium_recycling.jpg" alt="アルミガラ" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="item-fallback"><span class="item-fallback-abbr">AlG</span><span class="item-fallback-label">Al Scrap</span></div>
         </div>
-        <div class="price-card-name">OTHER METALS</div>
-        <div class="price-card-jp">その他金属・加工品</div>
-        <div class="price-card-value" style="color:var(--accent);">要査定</div>
-        <div class="price-card-unit">お問い合わせください</div>
-        <div class="price-card-bar" style="width:50%;"></div>
+        <div class="item-body"><div class="item-num">#06</div><div class="item-name-jp">アルミガラ</div><div class="item-name-en">Aluminum Scrap</div><span class="item-cat">Aluminum</span></div>
+      </div>
+
+      <div class="item-card" data-cat="aluminum">
+        <div class="item-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Aluminium-3d-balls.png/320px-Aluminium-3d-balls.png" alt="アルミホイルサッシ" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="item-fallback"><span class="item-fallback-abbr">AHS</span><span class="item-fallback-label">Sash Rim</span></div>
+        </div>
+        <div class="item-body"><div class="item-num">#45</div><div class="item-name-jp">アルミホイルサッシ</div><div class="item-name-en">Aluminum Sash Rim</div><span class="item-cat">Aluminum</span></div>
+      </div>
+
+      <div class="item-card" data-cat="aluminum">
+        <div class="item-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Duralumin_in_aluminum_pot.jpg/320px-Duralumin_in_aluminum_pot.jpg" alt="アルミ機械ジラ" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="item-fallback"><span class="item-fallback-abbr">DRL</span><span class="item-fallback-label">Duralumin</span></div>
+        </div>
+        <div class="item-body"><div class="item-num">#47</div><div class="item-name-jp">アルミ機械ジラ</div><div class="item-name-en">Machinery Duralumin Scrap</div><span class="item-cat">Aluminum</span></div>
+      </div>
+
+      <div class="item-card" data-cat="aluminum">
+        <div class="item-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Aluminum_recycling_-_crushed_cans.jpg/320px-Aluminum_recycling_-_crushed_cans.jpg" alt="アルミ缶" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="item-fallback"><span class="item-fallback-abbr">CAN</span><span class="item-fallback-label">Al Cans</span></div>
+        </div>
+        <div class="item-body"><div class="item-num">#48</div><div class="item-name-jp">アルミ缶</div><div class="item-name-en">Aluminum Cans</div><span class="item-cat">Aluminum</span></div>
+      </div>
+
+      <!-- COPPER -->
+      <div class="item-card" data-cat="copper">
+        <div class="item-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Copper_-_element_29.jpg/320px-Copper_-_element_29.jpg" alt="ピカ銅" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="item-fallback"><span class="item-fallback-abbr">MB</span><span class="item-fallback-label">Mill Berry</span></div>
+        </div>
+        <div class="item-body"><div class="item-num">#29</div><div class="item-name-jp">ピカ銅</div><div class="item-name-en">Mill Berry Copper</div><span class="item-cat">Copper</span></div>
+      </div>
+
+      <div class="item-card" data-cat="copper">
+        <div class="item-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Copper_-_element_29.jpg/320px-Copper_-_element_29.jpg" alt="一号銅" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="item-fallback"><span class="item-fallback-abbr">Cu1</span><span class="item-fallback-label">1st Grade</span></div>
+        </div>
+        <div class="item-body"><div class="item-num">#30</div><div class="item-name-jp">一号銅</div><div class="item-name-en">First Grade Copper</div><span class="item-cat">Copper</span></div>
+      </div>
+
+      <div class="item-card" data-cat="copper">
+        <div class="item-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Copper_-_element_29.jpg/320px-Copper_-_element_29.jpg" alt="二号銅" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="item-fallback"><span class="item-fallback-abbr">Cu2</span><span class="item-fallback-label">2nd Grade</span></div>
+        </div>
+        <div class="item-body"><div class="item-num">#31</div><div class="item-name-jp">二号銅</div><div class="item-name-en">Second Grade Copper</div><span class="item-cat">Copper</span></div>
+      </div>
+
+      <div class="item-card" data-cat="copper">
+        <div class="item-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Copper_tube.jpg/320px-Copper_tube.jpg" alt="銅パイプ" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="item-fallback"><span class="item-fallback-abbr">CPP</span><span class="item-fallback-label">Cu Pipe</span></div>
+        </div>
+        <div class="item-body"><div class="item-num">#32</div><div class="item-name-jp">銅パイプ</div><div class="item-name-en">Copper Pipe</div><span class="item-cat">Copper</span></div>
+      </div>
+
+      <div class="item-card" data-cat="copper">
+        <div class="item-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Copperradiator.jpg/320px-Copperradiator.jpg" alt="銅ラジエーター" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="item-fallback"><span class="item-fallback-abbr">CRD</span><span class="item-fallback-label">Cu Radiator</span></div>
+        </div>
+        <div class="item-body"><div class="item-num">#33</div><div class="item-name-jp">銅ラジエーター</div><div class="item-name-en">Copper Radiator</div><span class="item-cat">Copper</span></div>
+      </div>
+
+      <div class="item-card" data-cat="copper">
+        <div class="item-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Stranded_lamp_wire.jpg/320px-Stranded_lamp_wire.jpg" alt="銅線" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="item-fallback"><span class="item-fallback-abbr">CWR</span><span class="item-fallback-label">Cu Wire</span></div>
+        </div>
+        <div class="item-body"><div class="item-num">#34</div><div class="item-name-jp">銅線</div><div class="item-name-en">Copper Wire</div><span class="item-cat">Copper</span></div>
+      </div>
+
+      <div class="item-card" data-cat="copper">
+        <div class="item-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Stranded_lamp_wire.jpg/320px-Stranded_lamp_wire.jpg" alt="F線" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="item-fallback"><span class="item-fallback-abbr">F-W</span><span class="item-fallback-label">F-Cable</span></div>
+        </div>
+        <div class="item-body"><div class="item-num">#35</div><div class="item-name-jp">F線</div><div class="item-name-en">F-Cable</div><span class="item-cat">Copper</span></div>
+      </div>
+
+      <div class="item-card" data-cat="copper">
+        <div class="item-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Wiring_harness.jpg/320px-Wiring_harness.jpg" alt="ハーネス" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="item-fallback"><span class="item-fallback-abbr">HNS</span><span class="item-fallback-label">Harness</span></div>
+        </div>
+        <div class="item-body"><div class="item-num">#36</div><div class="item-name-jp">ハーネス（自動車線）</div><div class="item-name-en">Automotive Wiring Harness</div><span class="item-cat">Copper</span></div>
+      </div>
+
+      <!-- BRASS -->
+      <div class="item-card" data-cat="brass">
+        <div class="item-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Brass_shavings.jpg/320px-Brass_shavings.jpg" alt="真鍮" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="item-fallback"><span class="item-fallback-abbr">BRS</span><span class="item-fallback-label">Brass</span></div>
+        </div>
+        <div class="item-body"><div class="item-num">#37</div><div class="item-name-jp">真鍮</div><div class="item-name-en">Brass</div><span class="item-cat">Brass</span></div>
+      </div>
+
+      <div class="item-card" data-cat="brass">
+        <div class="item-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Gunmetal.jpg/320px-Gunmetal.jpg" alt="砲金" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="item-fallback"><span class="item-fallback-abbr">GNM</span><span class="item-fallback-label">Gunmetal</span></div>
+        </div>
+        <div class="item-body"><div class="item-num">#38</div><div class="item-name-jp">砲金</div><div class="item-name-en">Gunmetal</div><span class="item-cat">Brass</span></div>
+      </div>
+
+      <!-- SPECIAL METALS -->
+      <div class="item-card" data-cat="special">
+        <div class="item-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Nickel_silver_alloy.jpg/320px-Nickel_silver_alloy.jpg" alt="洋白/洋銀" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="item-fallback"><span class="item-fallback-abbr">NS</span><span class="item-fallback-label">Nickel Silver</span></div>
+        </div>
+        <div class="item-body"><div class="item-num">#09</div><div class="item-name-jp">洋白 / 洋銀</div><div class="item-name-en">Nickel Silver — Zn-Cu-Ni Alloy</div><span class="item-cat">Special Metal</span></div>
+      </div>
+
+      <div class="item-card" data-cat="special">
+        <div class="item-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Coins_on_a_table.jpg/320px-Coins_on_a_table.jpg" alt="洋白コイン" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="item-fallback"><span class="item-fallback-abbr">NSC</span><span class="item-fallback-label">NS Coin</span></div>
+        </div>
+        <div class="item-body"><div class="item-num">#10</div><div class="item-name-jp">洋白 / 洋銀　コイン・メダル</div><div class="item-name-en">Nickel Silver Coins / Medals</div><span class="item-cat">Special Metal</span></div>
+      </div>
+
+      <div class="item-card" data-cat="special">
+        <div class="item-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Tungsten_shiny.jpg/320px-Tungsten_shiny.jpg" alt="タングステン" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="item-fallback"><span class="item-fallback-abbr">W</span><span class="item-fallback-label">Tungsten</span></div>
+        </div>
+        <div class="item-body"><div class="item-num">#11</div><div class="item-name-jp">タングステン</div><div class="item-name-en">Tungsten</div><span class="item-cat">Special Metal</span></div>
+      </div>
+
+      <div class="item-card" data-cat="special">
+        <div class="item-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Lead_electrolytic_and_1cm3_cube.jpg/320px-Lead_electrolytic_and_1cm3_cube.jpg" alt="ヘビーメット" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="item-fallback"><span class="item-fallback-abbr">HVY</span><span class="item-fallback-label">Heavy Metal</span></div>
+        </div>
+        <div class="item-body"><div class="item-num">#12</div><div class="item-name-jp">ヘビーメット</div><div class="item-name-en">Heavy Metal</div><span class="item-cat">Special Metal</span></div>
+      </div>
+
+      <div class="item-card" data-cat="special">
+        <div class="item-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Cemented_carbide_cutting_tools.jpg/320px-Cemented_carbide_cutting_tools.jpg" alt="超硬" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="item-fallback"><span class="item-fallback-abbr">WC</span><span class="item-fallback-label">Carbide</span></div>
+        </div>
+        <div class="item-body"><div class="item-num">#13</div><div class="item-name-jp">超硬</div><div class="item-name-en">Tungsten Carbide / Cemented Carbide</div><span class="item-cat">Special Metal</span></div>
+      </div>
+
+      <div class="item-card" data-cat="special">
+        <div class="item-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Cermet_cutting_tools.jpg/320px-Cermet_cutting_tools.jpg" alt="サーメット" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="item-fallback"><span class="item-fallback-abbr">CMT</span><span class="item-fallback-label">Cermet</span></div>
+        </div>
+        <div class="item-body"><div class="item-num">#14</div><div class="item-name-jp">サーメット</div><div class="item-name-en">Cermet — Metal &amp; Ceramic Composite</div><span class="item-cat">Special Metal</span></div>
+      </div>
+
+      <div class="item-card" data-cat="special">
+        <div class="item-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/High_speed_steel_drill_bit.jpg/320px-High_speed_steel_drill_bit.jpg" alt="ハイス" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="item-fallback"><span class="item-fallback-abbr">HSS</span><span class="item-fallback-label">High Speed Steel</span></div>
+        </div>
+        <div class="item-body"><div class="item-num">#15</div><div class="item-name-jp">ハイス / HSS / 高速度鋼</div><div class="item-name-en">High Speed Steel</div><span class="item-cat">Special Metal</span></div>
+      </div>
+
+      <div class="item-card" data-cat="special">
+        <div class="item-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Tungsten_shiny.jpg/320px-Tungsten_shiny.jpg" alt="銅タン" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="item-fallback"><span class="item-fallback-abbr">CuW</span><span class="item-fallback-label">Cu-W Alloy</span></div>
+        </div>
+        <div class="item-body"><div class="item-num">#16</div><div class="item-name-jp">銅タン</div><div class="item-name-en">Copper Tungsten Alloy</div><span class="item-cat">Special Metal</span></div>
+      </div>
+
+      <div class="item-card" data-cat="special">
+        <div class="item-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Silver_crystal.jpg/320px-Silver_crystal.jpg" alt="銀タン" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="item-fallback"><span class="item-fallback-abbr">AgW</span><span class="item-fallback-label">Ag-W Alloy</span></div>
+        </div>
+        <div class="item-body"><div class="item-num">#17</div><div class="item-name-jp">銀タン</div><div class="item-name-en">Silver Tungsten Alloy</div><span class="item-cat">Special Metal</span></div>
+      </div>
+
+      <div class="item-card" data-cat="special">
+        <div class="item-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Lead-sheet.jpg/320px-Lead-sheet.jpg" alt="鉛" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="item-fallback"><span class="item-fallback-abbr">Pb</span><span class="item-fallback-label">Lead</span></div>
+        </div>
+        <div class="item-body"><div class="item-num">#51</div><div class="item-name-jp">鉛</div><div class="item-name-en">Lead</div><span class="item-cat">Special Metal</span></div>
+      </div>
+
+      <div class="item-card" data-cat="special">
+        <div class="item-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Zinc_fragment_sublimed_and_1cm3_cube.jpg/320px-Zinc_fragment_sublimed_and_1cm3_cube.jpg" alt="丹入" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="item-fallback"><span class="item-fallback-abbr">Zn</span><span class="item-fallback-label">Zinc</span></div>
+        </div>
+        <div class="item-body"><div class="item-num">#52</div><div class="item-name-jp">丹入</div><div class="item-name-en">Zinc Scrap</div><span class="item-cat">Special Metal</span></div>
+      </div>
+
+      <div class="item-card" data-cat="special">
+        <div class="item-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Solder.jpg/320px-Solder.jpg" alt="半田" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="item-fallback"><span class="item-fallback-abbr">SLD</span><span class="item-fallback-label">Solder</span></div>
+        </div>
+        <div class="item-body"><div class="item-num">#58</div><div class="item-name-jp">半田</div><div class="item-name-en">Solder Scrap</div><span class="item-cat">Special Metal</span></div>
+      </div>
+
+      <div class="item-card" data-cat="special">
+        <div class="item-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Tin-bronze-symbol.jpg/320px-Tin-bronze-symbol.jpg" alt="錫" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="item-fallback"><span class="item-fallback-abbr">Sn</span><span class="item-fallback-label">Tin</span></div>
+        </div>
+        <div class="item-body"><div class="item-num">#59</div><div class="item-name-jp">錫</div><div class="item-name-en">Tin</div><span class="item-cat">Special Metal</span></div>
+      </div>
+
+      <div class="item-card" data-cat="special">
+        <div class="item-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Nickel_chunk.jpg/320px-Nickel_chunk.jpg" alt="ニッケル" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="item-fallback"><span class="item-fallback-abbr">Ni</span><span class="item-fallback-label">Nickel</span></div>
+        </div>
+        <div class="item-body"><div class="item-num">#60</div><div class="item-name-jp">ニッケル</div><div class="item-name-en">Nickel</div><span class="item-cat">Special Metal</span></div>
+      </div>
+
+      <!-- ELECTRONICS / BATTERIES -->
+      <div class="item-card" data-cat="electronic">
+        <div class="item-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Lead_acid_battery.jpg/320px-Lead_acid_battery.jpg" alt="車のバッテリー" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="item-fallback"><span class="item-fallback-abbr">BAT</span><span class="item-fallback-label">Car Battery</span></div>
+        </div>
+        <div class="item-body"><div class="item-num">#25</div><div class="item-name-jp">車のバッテリー</div><div class="item-name-en">Car Battery</div><span class="item-cat">Electronics</span></div>
+      </div>
+
+      <div class="item-card" data-cat="electronic">
+        <div class="item-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Industrial_battery.jpg/320px-Industrial_battery.jpg" alt="産業用バッテリー" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="item-fallback"><span class="item-fallback-abbr">IND</span><span class="item-fallback-label">Ind. Battery</span></div>
+        </div>
+        <div class="item-body"><div class="item-num">#26</div><div class="item-name-jp">産業（工業）用バッテリー</div><div class="item-name-en">Industrial / Manufacturing Battery</div><span class="item-cat">Electronics</span></div>
+      </div>
+
+      <div class="item-card" data-cat="electronic">
+        <div class="item-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Forklift_battery.jpg/320px-Forklift_battery.jpg" alt="フォークリフトバッテリー" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="item-fallback"><span class="item-fallback-abbr">FLK</span><span class="item-fallback-label">Forklift Bat.</span></div>
+        </div>
+        <div class="item-body"><div class="item-num">#50</div><div class="item-name-jp">フォークリフトバッテリー</div><div class="item-name-en">Forklift Battery</div><span class="item-cat">Electronics</span></div>
+      </div>
+
+      <div class="item-card" data-cat="electronic">
+        <div class="item-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Old_computers.jpg/320px-Old_computers.jpg" alt="パサコン屑" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="item-fallback"><span class="item-fallback-abbr">PC</span><span class="item-fallback-label">PC Waste</span></div>
+        </div>
+        <div class="item-body"><div class="item-num">#27</div><div class="item-name-jp">パサコン屑</div><div class="item-name-en">Personal Computer Waste</div><span class="item-cat">Electronics</span></div>
+      </div>
+
+      <div class="item-card" data-cat="electronic">
+        <div class="item-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Rack_server.jpg/320px-Rack_server.jpg" alt="サーバー屑" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="item-fallback"><span class="item-fallback-abbr">SRV</span><span class="item-fallback-label">Server Waste</span></div>
+        </div>
+        <div class="item-body"><div class="item-num">#28</div><div class="item-name-jp">サーバー屑</div><div class="item-name-en">Server Waste</div><span class="item-cat">Electronics</span></div>
+      </div>
+
+      <div class="item-card" data-cat="electronic">
+        <div class="item-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Motherboard_asus_p5a.jpg/320px-Motherboard_asus_p5a.jpg" alt="基盤" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="item-fallback"><span class="item-fallback-abbr">PCB</span><span class="item-fallback-label">Motherboard</span></div>
+        </div>
+        <div class="item-body"><div class="item-num">#54</div><div class="item-name-jp">基盤</div><div class="item-name-en">Motherboard / PCB</div><span class="item-cat">Electronics</span></div>
+      </div>
+
+      <div class="item-card" data-cat="electronic">
+        <div class="item-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Ivy_Bridge_Quad_Core_Die_Shot.jpg/320px-Ivy_Bridge_Quad_Core_Die_Shot.jpg" alt="CPU" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="item-fallback"><span class="item-fallback-abbr">CPU</span><span class="item-fallback-label">Processor</span></div>
+        </div>
+        <div class="item-body"><div class="item-num">#55</div><div class="item-name-jp">CPU</div><div class="item-name-en">Central Processing Unit</div><span class="item-cat">Electronics</span></div>
+      </div>
+
+      <div class="item-card" data-cat="electronic">
+        <div class="item-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Laptop-hard-drive-exposed.jpg/320px-Laptop-hard-drive-exposed.jpg" alt="ハードディスク" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="item-fallback"><span class="item-fallback-abbr">HDD</span><span class="item-fallback-label">Hard Disk</span></div>
+        </div>
+        <div class="item-body"><div class="item-num">#56</div><div class="item-name-jp">ハードディスク</div><div class="item-name-en">Hard Disk Drive</div><span class="item-cat">Electronics</span></div>
+      </div>
+
+      <div class="item-card" data-cat="electronic">
+        <div class="item-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Electric_motor_400x400.jpg/320px-Electric_motor_400x400.jpg" alt="モーター" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="item-fallback"><span class="item-fallback-abbr">MTR</span><span class="item-fallback-label">Motor</span></div>
+        </div>
+        <div class="item-body"><div class="item-num">#39</div><div class="item-name-jp">モーター</div><div class="item-name-en">Electric Motor</div><span class="item-cat">Electronics</span></div>
+      </div>
+
+      <div class="item-card" data-cat="electronic">
+        <div class="item-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Transformer_electrical.jpg/320px-Transformer_electrical.jpg" alt="トランスフォーマー" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="item-fallback"><span class="item-fallback-abbr">TRF</span><span class="item-fallback-label">Transformer</span></div>
+        </div>
+        <div class="item-body"><div class="item-num">#40</div><div class="item-name-jp">トランスフォーマー</div><div class="item-name-en">Transformer</div><span class="item-cat">Electronics</span></div>
+      </div>
+
+      <div class="item-card" data-cat="electronic">
+        <div class="item-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Relay_electrical.jpg/320px-Relay_electrical.jpg" alt="リレー" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="item-fallback"><span class="item-fallback-abbr">RLY</span><span class="item-fallback-label">Relay</span></div>
+        </div>
+        <div class="item-body"><div class="item-num">#41</div><div class="item-name-jp">リレー</div><div class="item-name-en">Relay</div><span class="item-cat">Electronics</span></div>
+      </div>
+
+      <div class="item-card" data-cat="electronic">
+        <div class="item-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Gas_meter.jpg/320px-Gas_meter.jpg" alt="ガスメーター" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="item-fallback"><span class="item-fallback-abbr">GAS</span><span class="item-fallback-label">Gas Meter</span></div>
+        </div>
+        <div class="item-body"><div class="item-num">#42</div><div class="item-name-jp">ガスメーター</div><div class="item-name-en">Gas Meter</div><span class="item-cat">Electronics</span></div>
+      </div>
+
+      <div class="item-card" data-cat="electronic">
+        <div class="item-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Circuit_breaker.jpg/320px-Circuit_breaker.jpg" alt="ブレーカー" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="item-fallback"><span class="item-fallback-abbr">BRK</span><span class="item-fallback-label">Breaker</span></div>
+        </div>
+        <div class="item-body"><div class="item-num">#43</div><div class="item-name-jp">ブレーカー</div><div class="item-name-en">Circuit Breaker</div><span class="item-cat">Electronics</span></div>
+      </div>
+
+      <!-- OTHER -->
+      <div class="item-card" data-cat="other">
+        <div class="item-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Stainless_steel_pipes.jpg/320px-Stainless_steel_pipes.jpg" alt="ステンレス" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="item-fallback"><span class="item-fallback-abbr">SUS</span><span class="item-fallback-label">Stainless</span></div>
+        </div>
+        <div class="item-body"><div class="item-num">#44</div><div class="item-name-jp">ステンレス</div><div class="item-name-en">Stainless Steel</div><span class="item-cat">Other</span></div>
+      </div>
+
+      <div class="item-card" data-cat="other">
+        <div class="item-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Industrial_Scrap_Metal.jpg/320px-Industrial_Scrap_Metal.jpg" alt="工業雑品" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="item-fallback"><span class="item-fallback-abbr">IND</span><span class="item-fallback-label">Industrial</span></div>
+        </div>
+        <div class="item-body"><div class="item-num">#08</div><div class="item-name-jp">工業雑品</div><div class="item-name-en">Miscellaneous Industrial Goods</div><span class="item-cat">Other</span></div>
+      </div>
+
+      <div class="item-card" data-cat="other">
+        <div class="item-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Tire_recycling.jpg/320px-Tire_recycling.jpg" alt="車タイヤ" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="item-fallback"><span class="item-fallback-abbr">TYR</span><span class="item-fallback-label">Car Tires</span></div>
+        </div>
+        <div class="item-body"><div class="item-num">#49</div><div class="item-name-jp">車タイヤ</div><div class="item-name-en">Car Tires</div><span class="item-cat">Other</span></div>
+      </div>
+
+      <div class="item-card" data-cat="other">
+        <div class="item-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Automotive_catalytic_converter.jpg/320px-Automotive_catalytic_converter.jpg" alt="触媒" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="item-fallback"><span class="item-fallback-abbr">CAT</span><span class="item-fallback-label">Catalyst</span></div>
+        </div>
+        <div class="item-body"><div class="item-num">#53</div><div class="item-name-jp">触媒</div><div class="item-name-en">Catalyst / Catalytic Converter</div><span class="item-cat">Other</span></div>
+      </div>
+
+      <div class="item-card" data-cat="other">
+        <div class="item-img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Scrap_metal.jpg/320px-Scrap_metal.jpg" alt="機体" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="item-fallback"><span class="item-fallback-abbr">SCR</span><span class="item-fallback-label">Scrap</span></div>
+        </div>
+        <div class="item-body"><div class="item-num">#57</div><div class="item-name-jp">機体</div><div class="item-name-en">General Scrap</div><span class="item-cat">Other</span></div>
       </div>
 
     </div>
   </div>
 </section>
 
-<!-- CONTACT US -->
+<!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="contact-inner">
     <div class="contact-header">
       <div>
-        <div class="section-eyebrow">
-          <div class="section-line"></div>
-          <span>Contact Us</span>
-        </div>
+        <div class="section-eyebrow"><div class="section-line"></div><span>Contact Us</span></div>
         <h2 class="section-title">GET IN<br>TOUCH</h2>
         <p class="section-title-jp">お問い合わせ</p>
       </div>
-      <p class="contact-note">
-        スクラップの買取・リサイクルに関するご質問・ご相談は、お気軽にご連絡ください。
-        無料査定・出張見積もりも承ります。お電話またはメールよりお問い合わせください。
-      </p>
+      <p class="contact-note">スクラップの買取・リサイクルに関するご質問・ご相談は、お気軽にご連絡ください。無料査定・出張見積もりも承ります。</p>
     </div>
 
     <div class="contact-grid">
-
-      <!-- Contact Info -->
       <div class="contact-card">
         <div class="contact-card-title">CONTACT INFO</div>
         <div class="contact-card-jp">連絡先情報</div>
         <div class="contact-detail">
           <div class="contact-row">
-            <span class="contact-row-icon">📞</span>
-            <div>
-              <div class="contact-row-label">Tel & Fax</div>
-              <div class="contact-row-value">0270-82-1984</div>
-            </div>
+            <svg class="crow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.86-.86a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.27 16z"/></svg>
+            <div><div class="contact-row-label">Tel &amp; Fax</div><div class="contact-row-value">0270-82-1984</div></div>
           </div>
           <div class="contact-row">
-            <span class="contact-row-icon">📱</span>
+            <svg class="crow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
             <div>
               <div class="contact-row-label">携帯電話</div>
               <div class="contact-row-value">080-6543-6392</div>
@@ -679,14 +768,11 @@
             </div>
           </div>
           <div class="contact-row">
-            <span class="contact-row-icon">✉️</span>
-            <div>
-              <div class="contact-row-label">Email</div>
-              <div class="contact-row-value">benes0321@yahoo.com</div>
-            </div>
+            <svg class="crow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <div><div class="contact-row-label">Email</div><div class="contact-row-value">benes0321@yahoo.com</div></div>
           </div>
           <div class="contact-row">
-            <span class="contact-row-icon">📍</span>
+            <svg class="crow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             <div>
               <div class="contact-row-label">所在地</div>
               <div class="contact-row-value">〒372-0824</div>
@@ -696,33 +782,23 @@
         </div>
       </div>
 
-      <!-- Hours -->
       <div class="contact-card">
         <div class="contact-card-title">BUSINESS HOURS</div>
         <div class="contact-card-jp">営業時間</div>
         <div class="contact-detail">
           <div class="contact-row">
-            <span class="contact-row-icon">🕐</span>
+            <svg class="crow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
             <div style="width:100%;">
               <div class="contact-row-label">営業時間</div>
               <table class="hours-table">
-                <tr>
-                  <td>月曜〜土曜</td>
-                  <td>08:30 — 17:30</td>
-                </tr>
-                <tr>
-                  <td>日曜・祝日</td>
-                  <td class="closed-text">定休日</td>
-                </tr>
+                <tr><td>月曜〜土曜</td><td>08:30 &mdash; 17:30</td></tr>
+                <tr><td>日曜・祝日</td><td class="closed-text">定休日</td></tr>
               </table>
-              <div class="break-note" style="margin-top:12px;">
-                🍱 昼休み：12:00 – 13:00<br>
-                ☕ 小休憩：15:00 – 15:20
-              </div>
+              <div class="break-note">昼休み：12:00 &ndash; 13:00<br>小休憩：15:00 &ndash; 15:20</div>
             </div>
           </div>
           <div class="contact-row">
-            <span class="contact-row-icon">🚚</span>
+            <svg class="crow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
             <div>
               <div class="contact-row-label">出張買取</div>
               <div class="contact-row-value">大口・出張買取対応</div>
@@ -730,7 +806,7 @@
             </div>
           </div>
           <div class="contact-row">
-            <span class="contact-row-icon">💴</span>
+            <svg class="crow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
             <div>
               <div class="contact-row-label">お支払い</div>
               <div class="contact-row-value">査定後 即日現金払い</div>
@@ -739,7 +815,6 @@
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
@@ -756,63 +831,40 @@
             <span class="logo-sub">Recycling Japan</span>
           </div>
         </div>
-        <p class="footer-tagline">
-          ステンレス・アルミ・銅・真鍮、その他金属および加工品の買取を通じて、持続可能な社会の実現に貢献します。
-        </p>
+        <p class="footer-tagline">ステンレス・アルミ・銅・真鍮、その他金属および加工品の買取を通じて、持続可能な社会の実現に貢献します。</p>
       </div>
-
       <div>
         <div class="footer-location-title">Our Location</div>
         <div class="footer-location-items">
           <div class="footer-loc-item">
-            <span class="footer-loc-icon">📍</span>
-            <div>
-              <div class="footer-loc-label">Address</div>
-              <div class="footer-loc-value">〒372-0824 群馬県伊勢崎市柴町858-1</div>
-              <div class="footer-loc-detail">駐車場完備・大型車両可</div>
-            </div>
+            <svg class="footer-loc-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div><div class="footer-loc-label">Address</div><div class="footer-loc-value">〒372-0824 群馬県伊勢崎市柴町858-1</div><div class="footer-loc-detail">駐車場完備・大型車両可</div></div>
           </div>
           <div class="footer-loc-item">
-            <span class="footer-loc-icon">📞</span>
-            <div>
-              <div class="footer-loc-label">Tel & Fax</div>
-              <div class="footer-loc-value">0270-82-1984</div>
-              <div class="footer-loc-detail">携帯: 080-6543-6392</div>
-            </div>
+            <svg class="footer-loc-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.86-.86a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.27 16z"/></svg>
+            <div><div class="footer-loc-label">Tel &amp; Fax</div><div class="footer-loc-value">0270-82-1984</div><div class="footer-loc-detail">携帯: 080-6543-6392</div></div>
           </div>
           <div class="footer-loc-item">
-            <span class="footer-loc-icon">🕐</span>
-            <div>
-              <div class="footer-loc-label">Hours</div>
-              <div class="footer-loc-value">月〜土 08:30 – 17:30</div>
-              <div class="footer-loc-detail">日曜・祝日定休</div>
-            </div>
+            <svg class="footer-loc-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <div><div class="footer-loc-label">Hours</div><div class="footer-loc-value">月〜土 08:30 &ndash; 17:30</div><div class="footer-loc-detail">日曜・祝日定休</div></div>
           </div>
         </div>
       </div>
     </div>
-
     <div class="footer-bottom">
-      <p class="footer-copy">© 2025 株式会社 M&Vコーポレーション. All rights reserved. | benes0321@yahoo.com</p>
+      <p class="footer-copy">&copy; 2025 株式会社 M&Vコーポレーション. All rights reserved. | benes0321@yahoo.com</p>
     </div>
   </div>
 </footer>
 
 <script>
-  // Animate price bars on scroll into view
-  const bars = document.querySelectorAll('.price-card-bar');
-  bars.forEach(bar => {
-    const w = bar.style.width;
-    bar.style.width = '0';
-    const obs = new IntersectionObserver(entries => {
-      if (entries[0].isIntersecting) {
-        setTimeout(() => { bar.style.width = w; }, 100);
-        obs.disconnect();
-      }
-    }, { threshold: 0.3 });
-    obs.observe(bar);
-  });
+  function filterItems(cat, btn) {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.item-card').forEach(card => {
+      card.classList.toggle('hidden', cat !== 'all' && card.dataset.cat !== cat);
+    });
+  }
 </script>
-
 </body>
 </html>
